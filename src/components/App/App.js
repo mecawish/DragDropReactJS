@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 
-import AddTextBoxButton from '../../components/AddTextBoxButton/AddTextBoxButton';
-import DropZone from '../../components/DropZone/DropZone';
+import AddTextBoxButton from '../AddTextBoxButton/AddTextBoxButton';
+import DropZone from '../DropZone/DropZone';
 
 const App = () => (
 	<div>
