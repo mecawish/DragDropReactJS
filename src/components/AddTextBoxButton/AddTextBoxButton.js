@@ -2,17 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './AddTextBoxButton.css';
 
+import TextBox from '../TextBox/TextBox';
+
 class AddTextBoxButton extends React.Component {
-	handleClick(e){
+	addTextBox(e){
 		ReactDOM.render(
-		  <div>Let's pretend this is the textbox.</div>,
+		  <TextBox />,
 		  document.getElementById("dropZone")
 		);
 	}
 
 	render() {
 	    return (
-	    	<button onClick={this.handleClick}>Add TextBox</button>
+	    	<button onClick={this.addTextBox}>Add TextBox</button>
 	    );
   	} 
 }
