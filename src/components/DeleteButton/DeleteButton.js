@@ -2,13 +2,13 @@ import React from 'react';
 import './DeleteButton.css';
 
 class DeleteButton extends React.Component {
-	deleteTextBox(e){
+	onButtonClick(e){
 		e.target.parentNode.remove();
 	}
 
 	render() {
 	    return (
-	    	<div className="delete" onClick={this.deleteTextBox}>x</div>
+	    	<div className="delete" onClick={this.onButtonClick}>x</div>
 	    );
   	} 
 }

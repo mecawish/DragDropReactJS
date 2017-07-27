@@ -15,7 +15,7 @@ class App extends React.Component {
 	}
 
 	onAddTextBoxClick(textbox) {
-		var textboxes = this.state.textboxes.slice();
+		let textboxes = this.state.textboxes.slice();
 		textboxes.push(textbox);
 
 		this.setState({
