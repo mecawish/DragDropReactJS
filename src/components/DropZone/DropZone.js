@@ -3,9 +3,18 @@ import './DropZone.css';
 
 import TextBox from '../TextBox/TextBox';
 
-const DropZone = () => (
-	<div id="dropZone">
-	</div>
-);
+const DropZone = (props) => {
+	const textboxes = props.textboxes.map((textbox, index) => {
+		return (
+			<TextBox key={index} />
+		);
+	});
+
+	return(
+		<div id="dropZone">
+			{textboxes}
+		</div>
+	);
+};
 
 export default DropZone;

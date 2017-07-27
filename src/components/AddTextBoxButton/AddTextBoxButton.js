@@ -5,19 +5,23 @@ import './AddTextBoxButton.css';
 import TextBox from '../TextBox/TextBox';
 
 class AddTextBoxButton extends React.Component {
-	addTextBox(e){
-		// TO DO - change this to add textboxes each time button is clicked
-		// instead of just replacing the previous rendered element
-		ReactDOM.render(
-		  <TextBox />,
-		  document.getElementById("dropZone")
-		);
-		//react.createElement(TextBox);
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			textbox: TextBox
+		}
+
+		this.onButtonClick = this.onButtonClick.bind(this);
+	}
+
+	onButtonClick(){
+		this.props.onAddTextBoxClick(this.state.textbox);
 	}
 
 	render() {
 	    return (
-	    	<button onClick={this.addTextBox}>Add TextBox</button>
+	    	<button onClick={this.onButtonClick}>Add TextBox</button>
 	    );
   	} 
 }
