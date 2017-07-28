@@ -1,20 +1,28 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import './DropZone.css';
 
 import TextBox from '../TextBox/TextBox';
 
-const DropZone = (props) => {
-	const textboxes = props.textboxes.map((textbox, index) => {
-		return (
-			<TextBox key={index} />
-		);
-	});
+class DropZone extends React.Component {
+	render() {
+		const textboxes = this.props.textboxes.map((textbox, index) => {
+			return (
+				<TextBox
+					key={index}
+					onTextBoxMouseDown={this.props.onTextBoxMouseDown}
+					onTextBoxMouseMove={this.props.onTextBoxMouseMove}
+					onTextBoxMouseUp={this.props.onTextBoxMouseUp}
+				/>
+			);
+		});
 
-	return(
-		<div id="dropZone">
-			{textboxes}
-		</div>
-	);
-};
+		return(
+			<div id="dropZone">
+				{textboxes}
+			</div>
+		);
+	}
+}
 
 export default DropZone;
