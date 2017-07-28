@@ -48,7 +48,6 @@ class App extends React.Component {
 
 	onTextBoxMouseMove(e) {
 		if (this.state.dragElement) {
-			console.log("move");
 			const dropZone = document.getElementById('dropZone');
 
 			const dropZoneStyle = window.getComputedStyle(dropZone);
@@ -87,7 +86,16 @@ class App extends React.Component {
 	}
 
 	onTextBoxMouseUp(e) {
-		
+		const dragElement = this.state.dragElement;
+		if (dragElement) {
+			const el = this.state.dragElement.firstChild;
+			el.setAttribute('contenteditable', true);
+			el.style.cursor = 'text';
+			dragElement.style.cursor = 'default';
+			this.setState({
+				dragElement: null	
+			});
+		}
 	}
 
 	render() {
