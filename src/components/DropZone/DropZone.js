@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './DropZone.css';
 
 import TextBox from '../TextBox/TextBox';

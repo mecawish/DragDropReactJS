@@ -23,23 +23,23 @@ class App extends React.Component {
 	}
 
 	onAddTextBoxClick(textbox) {
-		let textboxes = this.state.textboxes.slice();
+		const textboxes = this.state.textboxes.slice();
 		textboxes.push(textbox);
 
 		this.setState({
             textboxes: textboxes,
       	 });
 	}
-
+	
 	onTextBoxMouseDown(e) {
 		if (e.target.classList.contains('drag')){
-			let dragElement = e.target;
+			const dragElement = e.target;
 		    this.setState({
 		    	startX: e.pageX,
 		    	startY: e.pageY,
 		    	dragElement: dragElement,
-		    	offsetX: e.target.offsetLeft,
-	    		offsetY: e.target.offsetTop
+		    	offsetX: dragElement.offsetLeft,
+	    		offsetY: dragElement.offsetTop
 		    });
 		    dragElement.style.cursor = 'move';
 	    	dragElement.firstChild.setAttribute('contenteditable', false);

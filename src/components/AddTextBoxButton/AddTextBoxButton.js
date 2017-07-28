@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './AddTextBoxButton.css';
-
 import TextBox from '../TextBox/TextBox';
 
 class AddTextBoxButton extends React.Component {
