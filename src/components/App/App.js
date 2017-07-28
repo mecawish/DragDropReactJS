@@ -47,7 +47,43 @@ class App extends React.Component {
 	}
 
 	onTextBoxMouseMove(e) {
-		
+		if (this.state.dragElement) {
+			console.log("move");
+			const dropZone = document.getElementById('dropZone');
+
+			const dropZoneStyle = window.getComputedStyle(dropZone);
+			const marginTop = parseInt(dropZoneStyle.getPropertyValue('border-top-width'));
+			const marginBottom = parseInt(dropZoneStyle.getPropertyValue('border-bottom-width'));
+			const marginLeft = parseInt(dropZoneStyle.getPropertyValue('border-left-width'));
+			const marginRight = parseInt(dropZoneStyle.getPropertyValue('border-right-width'));
+
+			const dropZoneRightLimit = dropZone.offsetWidth + dropZone.offsetLeft - marginRight;
+			const dropZoneLeftLimit = dropZone.offsetLeft + marginLeft;
+			const dropZoneTopLimit = dropZone.offsetTop + marginTop;
+			const dropZoneBottomLimit = dropZone.offsetHeight + dropZone.offsetTop - marginBottom;
+
+			const dragElement= this.state.dragElement;
+			const newLeft = this.state.offsetX + e.pageX - this.state.startX;
+			const newTop = this.state.offsetY + e.pageY - this.state.startY;
+			const rightLimit = dropZoneRightLimit - dragElement.offsetWidth;
+			const bottomLimit = dropZoneBottomLimit - dragElement.offsetHeight;
+
+			if (newLeft > rightLimit) {
+				dragElement.style.left = rightLimit + 'px';
+			} else if (newLeft < dropZoneLeftLimit){
+				dragElement.style.left = dropZoneLeftLimit + 'px';
+			} else {
+				dragElement.style.left = newLeft + 'px';	
+			}
+
+			if (newTop > bottomLimit) {
+				dragElement.style.top = bottomLimit + 'px';
+			} else if (newTop < dropZoneTopLimit) {
+				dragElement.style.top = dropZoneTopLimit + 'px';
+			} else {
+				dragElement.style.top = newTop + 'px';	
+			}
+		}
 	}
 
 	onTextBoxMouseUp(e) {
