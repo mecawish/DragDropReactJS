@@ -88,7 +88,7 @@ class App extends React.Component {
 	onTextBoxMouseUp(e) {
 		const dragElement = this.state.dragElement;
 		if (dragElement) {
-			const el = this.state.dragElement.firstChild;
+			const el = dragElement.firstChild;
 			el.setAttribute('contenteditable', true);
 			el.style.cursor = 'text';
 			dragElement.style.cursor = 'default';
